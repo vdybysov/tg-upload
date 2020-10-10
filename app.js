@@ -18,10 +18,14 @@ switch (op) {
     case 'upload':
         const chatId = getArg('chat')
         if (!chatId) {
-            console.error(`No chat id`)
+            console.error(`No chat id.`)
             return
         }
         const filePath = getArg('file')
+        if (!filePath) {
+            console.error(`No file path.`)
+            return
+        }
         fs.promises.stat(filePath)
             .then(() => {
                 try {
