@@ -1,0 +1,22 @@
+{
+  "name": "tg-upload",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vdybysov/tg-upload.git"
+  },
+  "author": "vdybysov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vdybysov/tg-upload/issues"
+  },
+  "homepage": "https://github.com/vdybysov/tg-upload#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.50.0"
+  }
+}
