@@ -14,7 +14,7 @@ const fs = require('fs')
 const TelegramBot = require('node-telegram-bot-api')
 
 const askForToken = () => new Promise(resolve => {
-    rl.question('1. Type your bot token: ', token => {
+    rl.question('1. Type your bot token: ', async token => {
         const bot = new TelegramBot(token, { polling: true })
         try {
             await bot.getMe()
