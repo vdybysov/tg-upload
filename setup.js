@@ -15,7 +15,7 @@ const TelegramBot = require('node-telegram-bot-api')
 
 const askForToken = () => new Promise(resolve => {
     rl.question('1. Type your bot token: ', async token => {
-        const bot = new TelegramBot(token, { polling: true })
+        const bot = new TelegramBot(token)
         try {
             await bot.getMe()
             resolve(bot)
@@ -28,10 +28,16 @@ const askForToken = () => new Promise(resolve => {
 })
 
 const waitForChat = bot => new Promise(resolve => {
+    bot.startPolling()
     console.log('2. Send any message to your bot to let him remember your account for file transfer...')
+    let chatId
     bot.on('message', msg => {
-        console.log(`Success! Chat ID is ${chalk.bold(msg.chat.id)}`)
-        resolve(msg.chat.id)
+        if(chatId) {
+            return
+        }
+        chatId = msg.chat.id
+        console.log(`Success! Chat ID is ${chalk.bold(chatId)}`)
+        resolve(chatId)
     })
 })
 
@@ -51,6 +57,7 @@ const createAliases = chatId => new Promise(resolve => {
     console.log('3. Creating aliases...')
     fs.readFile(BASHRC, (err, content) => {
         if (err) {
+            resolve()
             console.log(`Could not read ${BASHRC}`)
             return
         }
@@ -74,6 +81,7 @@ const createAliases = chatId => new Promise(resolve => {
             } else {
                 console.log(`Well done! Open new terminal and run\n${chalk.bold('tgup <file>')}\nto upload and\t${chalk.bold('tgdl')}\nto download.`)
             }
+            resolve()
         })
     })
 })
@@ -82,3 +90,4 @@ askForToken()
     .then(waitForChat)
     .then(saveConfig)
     .then(createAliases)
+    .then(() => process.exit())
