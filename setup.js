@@ -4,7 +4,8 @@ process.env["NTBA_FIX_319"] = 1
 const BASHRC = '~/.bashrc'
 const BASHRC_COMMENT = '# Added by tgft, do not touch'
 
-const {question} = require('readline').createInterface({
+const readline = require('readline')
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
@@ -13,11 +14,13 @@ const fs = require('fs')
 const TelegramBot = require('node-telegram-bot-api')
 
 const askForToken = () => new Promise(resolve => {
-    question('1. Type your bot token:', token => {
+    rl.question('1. Type your bot token: ', token => {
+        const bot = new TelegramBot(token, { polling: true })
         try {
-            const bot = new TelegramBot(token, { polling: true })
+            await bot.getMe()
             resolve(bot)
         } catch (err) {
+            bot.stopPolling()
             console.log('Could not create bot. Wrong token?')
             askForToken().then(resolve)
         }
