@@ -1,7 +1,7 @@
 process.env["NTBA_FIX_350"] = 1
 process.env["NTBA_FIX_319"] = 1
 
-const BASHRC = '~/.bashrc'
+const BASHRC = `${require('os').homedir()}/.bashrc`
 const BASHRC_COMMENT = '# Added by tgft, do not touch'
 
 const readline = require('readline')
