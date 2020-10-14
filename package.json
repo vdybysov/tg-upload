@@ -1,11 +1,8 @@
 {
-  "name": "tg-upload",
+  "name": "tgft",
   "version": "0.0.1",
   "description": "",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vdybysov/tg-upload.git"
@@ -17,6 +14,7 @@
   },
   "homepage": "https://github.com/vdybysov/tg-upload#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "node-telegram-bot-api": "^0.50.0"
   }
 }
