@@ -18,7 +18,7 @@ const askForToken = () => new Promise(resolve => {
         const bot = new TelegramBot(token)
         try {
             await bot.getMe()
-            resolve(bot)
+            resolve({token, bot})
         } catch (err) {
             bot.stopPolling()
             console.log('Could not create bot. Wrong token?')
@@ -83,7 +83,9 @@ function tgdl() {
 })
 
 askForToken()
-    .then(saveConfig)
-    .then(waitForChat)
+    .then(async ({token, bot}) => {
+        await saveConfig(token)
+        return await waitForChat(bot)
+    })
     .then(createAliases)
     .then(() => process.exit())
