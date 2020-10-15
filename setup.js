@@ -75,7 +75,7 @@ function tgdl() {
             if (err) {
                 console.log(`Could not write ${BASHRC}`)
             } else {
-                console.log(`Well done! Open new terminal and run\n${chalk.bold('tgup <file>')}\nto upload and\n${chalk.bold('tgdl')}\nto download.`)
+                console.log(`Well done! Open new terminal and run\n${chalk.bold('tgup <file>')}\nto upload and\n${chalk.bold('tgdl [file]')}\nto download.`)
             }
             resolve()
         })
