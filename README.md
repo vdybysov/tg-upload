@@ -3,7 +3,7 @@ A Telegram bot that allows you to upload or download files from Telegram chat by
 
 # Setup
 ```
-curl https://raw.githubusercontent.com/vdybysov/tgft/main/setup.sh | bash
+curl https://raw.githubusercontent.com/vdybysov/tgft/main/setup.sh | bash -s
 ```
 
 # Usage
