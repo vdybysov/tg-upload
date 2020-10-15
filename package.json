@@ -1,7 +1,7 @@
 {
   "name": "tgft",
-  "version": "0.0.1",
-  "description": "",
+  "version": "1.0.0",
+  "description": "A Telegram bot that allows you to upload or download files from Telegram chat by short command.",
   "main": "app.js",
   "scripts": {
     "setup": "node setup.js"
