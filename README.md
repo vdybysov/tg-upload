@@ -15,5 +15,5 @@ tgup <file>
 ```
 Download
 ```
-tgdl
+tgdl [dest]
 ```
