@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "main": "app.js",
+  "scripts": {
+    "setup": "node setup.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vdybysov/tg-upload.git"
