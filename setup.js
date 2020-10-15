@@ -68,7 +68,7 @@ function tgup() {
     node ${__dirname}/upload.js --chat=${chatId} --file=$1
 }
 function tgdl() {
-    node ${__dirname}/download.js --chat=${chatId}
+    node ${__dirname}/download.js --chat=${chatId} --file=$1
 }
         `
         fs.writeFile(BASHRC, content, err => {
