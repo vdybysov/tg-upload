@@ -83,7 +83,7 @@ function tgdl() {
 })
 
 askForToken()
-    .then(waitForChat)
     .then(saveConfig)
+    .then(waitForChat)
     .then(createAliases)
     .then(() => process.exit())
